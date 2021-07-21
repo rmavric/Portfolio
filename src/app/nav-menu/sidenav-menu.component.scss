@@ -1,0 +1,27 @@
+a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  a:hover, a:active {
+    color: lightgray;
+  }
+  
+  .nav-caption {
+    display: inline-block;
+    padding-left: 6px;
+  }
+  
+  .subItem{
+    display: flex !important;
+    justify-content: center !important;
+    align-content: center !important;
+    margin-left: 30px !important;
+  }
+  
+  .activeSpan {
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-content: center !important;
+    margin-left: 50px !important;
+  }

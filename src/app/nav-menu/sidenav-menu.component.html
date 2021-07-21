@@ -1,0 +1,92 @@
+<mat-nav-list>
+  <a mat-list-item [routerLink]="'/home'" (click)="[setHome('home'), changePageMethod('home')]">
+    <mat-icon>home</mat-icon>
+    <span class="nav-caption">
+      <span [ngStyle]="addHomeStyleWhenActive()">Home</span>
+    </span>
+    <span class="activeSpan" *ngIf="activeItemHome!='none'">
+      <mat-icon>done</mat-icon>
+    </span>
+  </a>
+
+
+
+
+<!----------------------------------------- ABOUT ME ----------------------------------------->
+  <!-- <mat-list-item (click)="toggleSolar()"> -->
+    <mat-list-item [routerLink]="'/curriculumvitae'" (click)="[setActiveItemCV('curriculumvitae'), changePageMethod('curriculumvitae')]">
+      <mat-icon>tag_faces</mat-icon>
+      <a matline >
+        <span class="nav-caption">
+          <span [ngStyle]="addCVStyleWhenActive()">About me</span>
+        </span>
+      </a>
+      <span class="activeSpan" *ngIf="activeItemCV!='none'">
+        <mat-icon>done</mat-icon>
+      </span>
+    </mat-list-item>
+
+
+  <!----------------------------------------- SOLAR PROJECT ----------------------------------------->
+  <!-- <mat-list-item (click)="toggleSolar()"> -->
+  <mat-list-item [routerLink]="'/solarproject'" (click)="[setActiveItemSolar('solarproject'), changePageMethod('solarproject')]">
+    <mat-icon>wb_sunny</mat-icon>
+    <a matline >
+      <span class="nav-caption">
+        <span [ngStyle]="addSolarStyleWhenActive()">Solar project</span>
+      </span>
+    </a>
+    <span class="activeSpan" *ngIf="activeItemSolar!='none'">
+      <mat-icon>done</mat-icon>
+    </span>
+  </mat-list-item>
+
+
+  <!----------------------------------------- CRYPTO PROJECT ----------------------------------------->
+
+  <mat-list-item [routerLink]="'/cryptoproject'" (click)="[setActiveItemCrypto('cryptoproject'), changePageMethod('cryptoproject')]">
+    <mat-icon>attach_money</mat-icon>
+    <a matline >
+      <span class="nav-caption">
+        <span [ngStyle]="addCryptoStyleWhenActive()">Crypto project</span>
+      </span>
+    </a>
+    <span class="activeSpan" *ngIf="activeItemCrypto!='none'">
+      <mat-icon>done</mat-icon>
+    </span>
+  </mat-list-item>
+
+
+  <!----------------------------------------- TEMPERATURE PROJECT ----------------------------------------->
+
+  <mat-list-item [routerLink]="'/temperatureproject'" (click)="[setActiveItemTemperature('temperatureproject'), changePageMethod('temperatureproject')]">
+    <mat-icon>wb_cloudy</mat-icon>
+    <a matline >
+      <span class="nav-caption">
+        <span [ngStyle]="addTemperatureStyleWhenActive()">Temperature project</span>
+      </span>
+    </a>
+    <span class="activeSpan" *ngIf="activeItemTemperature!='none'">
+      <mat-icon>done</mat-icon>
+    </span>
+  </mat-list-item>
+
+
+  <!----------------------------------------- GPS PROJECT ----------------------------------------->
+
+  <mat-list-item [routerLink]="'/gpsproject'" (click)="[setActiveItemGPS('gpsproject'), changePageMethod('gpsproject')]">
+    <mat-icon>location_on</mat-icon>
+    <a matline >
+      <span class="nav-caption">
+        <span [ngStyle]="addGPSStyleWhenActive()">GPS project</span>
+      </span>
+    </a>
+    <span class="activeSpan" *ngIf="activeItemGPS!='none'">
+      <mat-icon>done</mat-icon>
+    </span>
+  </mat-list-item>
+
+
+
+
+</mat-nav-list>

@@ -1,0 +1,35 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+      <button mat-icon-button (click)="onToggleSidenav()">
+          <mat-icon>menu</mat-icon>
+      </button>
+  </div>
+  <div>
+    <a routerLink="/home" (click)="[setActiveItem('home'), changePageMethod('home')]">cos&#40;2&pi;&#41;</a> 
+  </div>
+
+
+
+  <div fxFlex fxLayout fxLayoutAlign="start" fxHide.xs class="mainToolbarDiv">
+
+    <!---------------------------------------- PROJECTS ---------------------------------------->
+
+    <nav mat-tab-nav-bar>
+        <a mat-tab-link [routerLink]="['/curriculumvitae']" (click)="[setActiveItem('curriculumvitae'), changePageMethod('curriculumvitae')]"
+        [active]="activeLink=='curriculumvitae'"> About me </a>  
+        <a mat-tab-link [routerLink]="['/solarproject']" (click)="[setActiveItem('solarproject'), changePageMethod('solarproject')]"
+        [active]="activeLink=='solarproject'"> Solar project </a>
+        <a mat-tab-link [routerLink]="['/cryptoproject']" (click)="[setActiveItem('cryptoproject'), changePageMethod('cryptoproject')]"
+        [active]="activeLink=='cryptoproject'"> Crypto project </a>
+        <a mat-tab-link [routerLink]="['/temperatureproject']" (click)="[setActiveItem('temperatureproject'), changePageMethod('temperatureproject')]"
+        [active]="activeLink=='temperatureproject'"> Temperature project </a>
+        <a mat-tab-link [routerLink]="['/gpsproject']" (click)="[setActiveItem('gpsproject'), changePageMethod('gpsproject')]"
+        [active]="activeLink=='gpsproject'"> GPS project </a>
+
+    </nav>
+    
+
+
+
+  </div>
+</mat-toolbar>

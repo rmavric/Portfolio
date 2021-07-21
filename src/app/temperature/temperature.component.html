@@ -1,0 +1,71 @@
+<mat-card>
+    <mat-card-content>
+  
+      <!-- About project -->
+  
+      <h1 class="mat-h1">Temperature project</h1>
+      <br />
+      <h2 class="mat-h2">Idea</h2>
+      <div class="mat-body-1">
+        This is a project that is not too demanding but it is practical. A small device that monitors the percentage of humidity and ambient temperature
+        was built in this project and of course, those measurements are sent to the database, and then they are shown on this page. Measurements are taken
+        once per hour using DHT11 Humidity &#38; Temperature Sensor. It measures temperatures from 0&#176; - 50&#176; C and humidity percentages from
+        0&#37; - 90&#37;. To measure humidity it uses two electrodes that are near to each other. When the humidity in ambient is higher, more humidity
+        comes between those electrodes, and resistance between them gets smaller. 
+        To measure temperature it uses a thermistor which changes its resistance, to be more precise, when the temperature gets higher resistance decreases.
+        DHT11 is connected to WEMOS D1 mini, which is awake for 1 minute, sends measured data to the database, and then goes to sleep for about 59 minutes.
+        RTC clock was not used, but that would be very useful to have more precise reading intervals because the internal clock inside Wemos is not too
+        precise.
+      </div>
+      <br />
+  
+      <h2 class="mat-h2">Components used</h2>
+      <div class="mat-body"><b>WEMOS D1 mini</b> -> with ESP8266</div>
+      <br />
+      <div class="mat-body"><b>DHT11</b> -> temperature and humidity sensor</div>
+      <br />
+      <div class="mat-body"><b>Resistor 10 k<span>&#8486;</span></b> -> between 5V and data pin</div>
+      <br />
+      <div class="mat-body"><b>MB102 Breadboard Power Supply</b> -> used to power Wemos D1 mini and DHT11</div>
+      <br />
+    </mat-card-content>
+  
+    <br>
+  
+    <!-- Scheme and code -->
+  
+    <mat-card-content>
+  
+      <h1 class="mat-h1">Scheme and code</h1>
+  
+      <div class="mat-body-1">
+        Below you can see schematics of all the connections in this project and code for Wemos.
+      </div>
+  
+      <br />
+  
+      <img mat-card-image src="assets/TemperatureProject.jpg" alt="temperatureSetup">
+  
+      <br />
+  
+      <div class="mat-body-1">
+        
+      </div>
+  
+      <br />
+  
+      <div class="mat-body-1">The code which Wemos is using is shown here:</div>
+  
+      <textarea matInput rows="30" [innerHtml]="wemosSnippet" class="codeSnippet"></textarea>
+  
+  
+    </mat-card-content>
+  
+  
+  </mat-card>
+  
+  <br />
+
+  <app-results></app-results>
+
+

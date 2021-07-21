@@ -1,0 +1,105 @@
+.mat-h1 {
+    font-size: 26px;
+    font-weight: bold;
+  }
+  
+  
+  .spinnerSection {
+    height: 90vh;
+    width: 100vw;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .errorDataDiv{
+    height: 90vh;
+    width: 100vw;
+    text-align: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+}
+  
+  
+  
+  .progressSpinner {
+    margin-left: 45%;
+  }
+  
+  
+  .mat-progress-spinner circle {
+    stroke: #00979d !important;
+  }
+  
+  
+  
+  .mat-expansion-panel-header {
+    background-color: darkgray;
+  }
+  
+  .mat-expansion-panel-header-title {
+    justify-content: center !important;
+  }
+  
+  @media screen and (max-width: 650px) {
+    .datePickerCard {
+      display: block !important;
+      flex-direction: column !important;
+      height: 180px !important;
+    }
+  }
+  
+  .mainMatCard {
+    display: flex !important;
+    margin: 0 auto;
+    width: 800px;
+    
+    justify-content: center;
+    //align-items: center;
+    position: relative;
+    flex-direction: column;
+  
+  
+  
+    .datePickerCard {
+      background-color: white !important;
+      justify-content: space-between !important;
+      display: flex;
+    }
+  
+    .submitDates {
+      background-color: #00979d;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+    }
+  }
+  
+  
+  .errorDataDiv{
+      height: 90vh;
+      width: 100vw;
+      text-align: center;
+      justify-content: center;
+      display:flex;
+      flex-direction: column;
+  }
+  
+  @media screen and (max-width: 850px) {
+    .mainMatCard {
+      width: auto !important;
+    }
+  
+    .progressSpinner {
+      margin-left: 40%;
+    }
+  }
+  
+  
+  @media screen and (max-width: 400px) {
+    .progressSpinner {
+      margin-left: 35%;
+    }
+  }

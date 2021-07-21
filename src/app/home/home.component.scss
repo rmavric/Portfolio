@@ -1,0 +1,71 @@
+div {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  
+.mat-card {
+    display: flex !important;
+    margin: 0 auto;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+.mat-body {
+    line-height: 28px;
+    font-size: 16px;
+  }
+  
+
+
+.carouselMatCard {
+    margin: 0 auto;
+    //min-height: 30vh;
+    display: flex;
+    height: 44vh;
+    overflow: hidden;
+    border-radius: 0.5em;
+    display: flex;
+    flex-direction: column
+}
+
+@media screen and (max-width: 850px) {
+    .mat-card {
+      width: auto !important;
+    }
+
+    .carouselMatCard {
+    
+        height: 40vh;
+      }
+}
+
+@media screen and (max-width: 650px) {
+
+    .carouselMatCard {
+      height: 25vh;
+    }
+  }
+  
+  @media screen and (max-width: 450px) {
+  
+    .carouselMatCard {
+      height: 22vh;
+    }
+  }
+  
+
+  @media screen and (max-width: 350px) {
+  
+    .carouselMatCard {
+      height: 22vh;
+    }
+  }
+
+  @media screen and (max-width: 250px) {
+  
+    .carouselMatCard {
+      height: 25vh;
+    }
+  }

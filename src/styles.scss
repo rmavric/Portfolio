@@ -1,0 +1,24 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import "~leaflet/dist/leaflet.css";
+
+
+html, body { height: 100%; margin: 0; }
+body { margin: 0; padding: 0; font-family: Roboto, "Helvetica Neue", sans-serif; min-height: 100%;  position: relative}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-height: 100%;
+  position: relative
+}
+
+.mat-body-1 {
+  line-height: 28px;
+  font-size: 18px;
+}
+
+a.canvasjs-chart-credit{
+  display: none;
+}

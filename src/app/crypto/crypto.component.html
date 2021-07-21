@@ -1,0 +1,59 @@
+<div>
+  <!-- *ngIf="allCryptoData" -->
+  <mat-card class="mainMatCard">
+
+    <h1 class="mat-h1">About project</h1>
+
+    <div class="mat-body-1">
+      This small project is made just for fun. It is not too difficult but some new techniques were acquired.
+      Arduino and similar devices are also not used so this little project will be atypical on this page.
+      In comparison to the <a href="/solarproject">Solar project</a>, the Highcharts diagram was used instead of CanvasJS.
+      Data is acquired using API from <a href="https://min-api.cryptocompare.com">CryptoCompare</a>, for a personal
+      (non-commercial) project.
+      Data is sent to the server every five minutes, which then sends data to SQL database.
+      It would be fun to use WebSockets and receive data in the application directly from the internet, but for now, this will
+      work. This party will take place later.
+      Data is then shown in diagrams on this page and it is updated every minute. Only BTC/EUR, BTC/USD, ETH/EUR, and
+      ETH/USD charts are shown and this
+      is more than enough to understand how this works.
+    </div>
+
+    <br />
+
+  </mat-card>
+
+  <br />
+
+  <mat-card *ngIf="allCryptoData" class="mainMatCard">
+
+    
+    <h1 class="mat-h1">Diagrams</h1>
+
+
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.xs="column"
+      fxLayoutAlign.xs="space-around stretch">
+      <button mat-raised-button (click)="setTo('BTCEUR')">BTC/EUR</button>
+      <button mat-raised-button (click)="setTo('BTCUSD')">BTC/USD</button>
+      <button mat-raised-button (click)="setTo('ETHEUR')">ETH/EUR</button>
+      <button mat-raised-button (click)="setTo('ETHUSD')">ETH/USD</button>
+    </div>
+    <div class="backupDiv">
+      <mat-divider></mat-divider>
+    </div>
+
+
+    <app-crypto-diagram class="diagram" [allData]="allCryptoData" [currencyInput]="currency">
+    </app-crypto-diagram>
+  </mat-card>
+
+
+</div>
+
+<br />
+
+<h1 class="mat-h1 , errorDataDiv" *ngIf="errorData">{{errorData}}</h1>
+
+<div *ngIf="!allCryptoData && !errorData" class="spinnerSection">
+  <mat-progress-spinner class="progressSpinner" mode="indeterminate">
+  </mat-progress-spinner>
+</div>

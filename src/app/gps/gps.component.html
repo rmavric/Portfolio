@@ -1,0 +1,69 @@
+<mat-card>
+    <mat-card-content>
+  
+  
+      <h1 class="mat-h1">GPS project</h1>
+      <br />
+      <h2 class="mat-h2">Idea</h2>
+      <div class="mat-body-1">
+        The main goal of this small project was to learn how the GPS module works, save data that the GPS module gives, and show this data on the map. GPS is a system that
+        gives information about the geographical position in the way that receivers communicate with a minimum of 4 satellites and calculate geographical latitude and longitude
+        (altitude and time). Since I have to drive through the county very often because of work, it is ideal to turn on this small device and collect some data. Data is collected every second 
+        and gets saved to microSD card. To draw those routes on the map leaflet.js was used (the thing I saw for the first time, but it will be used in some future projects to explore more capabilities).  
+        
+      </div>
+      <br />
+  
+      <h2 class="mat-h2">Components used</h2>
+      <div class="mat-body"><b>Arduino Nano V3.0</b> -> used to control NEO-6M GPS module and MicroSD module</div>
+      <br />
+      <div class="mat-body"><b>NEO-6M GPS Module</b> -> gives information about longitude and latitude through serial communication to arduino</div>
+      <br />
+      <div class="mat-body"><b>MicroSD Module</b> -> used for saving data to microSD card</div>
+      <br />
+      <div class="mat-body"><b>MB102 Breadboard Power Supply or PowerBank (2A output)</b> -> used to power the whole project</div>
+      <br />
+    </mat-card-content>
+  
+    <br>
+  
+  
+    <mat-card-content>
+  
+      <h1 class="mat-h1">Scheme and code</h1>
+  
+      <div class="mat-body-1">
+        Below you can see schematics of all the connections in this project and code for Nano.
+      </div>
+  
+      <br />
+  
+      <img mat-card-image src="assets/GPSProject.jpg" alt="gpsSetup">
+  
+      <br />
+  
+      <div class="mat-body-1">
+        
+      </div>
+  
+      <br />
+  
+      <div class="mat-body-1">The code which Nano is using is shown here:</div>
+  
+      <textarea matInput rows="30" [innerHtml]="nanoSnippet" class="codeSnippet"></textarea>
+  
+  
+    </mat-card-content>
+  
+  
+  </mat-card>
+
+<br>
+
+
+<app-results></app-results>
+
+
+  
+
+

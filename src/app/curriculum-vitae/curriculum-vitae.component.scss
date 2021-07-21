@@ -1,0 +1,441 @@
+  .mainMatCard {
+    display: flex !important;
+    margin: 0 auto;
+    width: 800px;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .mat-icon{
+    vertical-align:middle;
+    font-size: 18px;
+    height: 18px;
+    float: right;
+    margin-right: 25%;
+  }                                
+                                                // tu treba nastavit dalje
+  .mat-flat-button{             
+    height:19.2px;
+    text-align: center;
+    padding: 0 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+  .mat-h1{
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: center;
+  }
+
+  .mat-body-1 {
+    line-height: 2em;
+    font-size: 1em;
+  }
+
+  .mat-body {
+    line-height: 2em;
+    font-size: 0.8em;
+  }
+
+  .mat-card{
+    .mat-divider-horizontal{
+      width: 32%;
+      left: 1%;
+    }
+  }
+  
+  .mat-list{
+    margin-bottom: 2em;
+  }
+
+  .mat-list-base{
+    padding: 0;
+  }
+
+  .mat-list-item-content{
+    padding: 0;
+  }
+
+  a {
+    color: rgba(0,0,0, 0.87);
+  }
+
+  .specDiv {
+    width: 100%;
+    height: 19.2px;
+  }
+
+
+
+
+
+
+
+
+
+.container{
+    display: row;
+    position: relative;
+
+    .leftColumn{
+        height: auto;
+        width: 34%;
+        background-color: lightgray;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+
+        .mat-card-image{
+          width: 100%;
+          margin: 0;
+        }
+        .contacts{
+          height: 1em;
+          margin-top: 0.4em;
+        }
+        .contactName{
+          height: 1em;
+          margin-top: 0.4em;
+          margin-bottom: 1em;
+        }
+        .languagesItem{
+          height: 1em;
+          margin-top: 0.4em;
+          margin-bottom: 0.8em;
+        }
+        .skillsAndHobbyItems{
+          height: 1em;
+          margin-top: 0.4em;
+          margin-bottom: 0.8em !important;
+        }
+
+        .contact{
+          margin-top: 0.5em;
+          margin-bottom: 0;
+          margin-left: 0.8em;
+        }
+        .languages{
+          margin-top: 0.5em;
+          margin-bottom: 0;
+          margin-left: 0.8em;
+        }
+        .hobbies{
+          margin-top: 0.5em;
+          margin-bottom: 0;
+          margin-left: 0.8em;
+        }
+        .skills{
+          margin-top: 0.5em;
+          margin-bottom: 0;
+          margin-left: 0.8em;
+        }
+
+
+        .mat-h2{
+          line-height: 1.5em;
+          font-size: 1.2em;
+        }
+
+        .skillsContainer{
+          display: row;
+          position: relative;
+        }
+
+
+        .leftLeftColumn{
+          display: column;
+          height: 100%;
+          width: 58%;
+
+          .mat-body-1{
+            width: 100%;
+            justify-content: space-between;
+          }
+
+          .mat-body {
+            font-size: 0.6em;
+          }
+        }
+
+
+        .rightLeftColumn{
+          display: column;
+          height: 100%;
+          width: 42%;
+        }
+
+
+
+      ::ng-deep .mat-progress-bar-fill::after {
+          background-color: #00979d;
+      }
+      ::ng-deep .mat-progress-bar-buffer {
+          background: #E4E8EB;
+      }
+      ::ng-deep .mat-progress-bar {
+          border-radius: 2px;
+      }
+
+    }
+  
+  
+
+
+
+
+
+
+    .rightColumn{
+      
+
+      display: column;
+      height: 100%;
+      width: 66%;
+      background-color: white;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+
+      .mat-h2{
+        font-size: 1.2em;
+        text-align: left;
+        padding-left: 0.8em;
+        margin-bottom: 0.3em;
+        margin-top: 0.5em;
+      }
+
+      .mat-divider{
+        width: 98%;
+        position: absolute;
+      }
+
+      .listOfCompanies{
+        margin-bottom: 2em;
+      }
+
+      .roles{
+        height: auto;
+        margin-top: 0.3em;
+        margin-bottom: 0.3em !important;
+        line-height: 1.2em;
+        font-size: 0.8em;
+      }
+
+
+      
+
+
+
+      .educationColumn{
+        width: 100%;
+
+        .mat-divider{
+          position:absolute;
+          bottom: 45%;
+          width: 98%
+        }
+      }
+
+      .degree{
+        font-size: 0.8em;
+      }
+
+      .timeSpan, .workInterval{
+        font-size: 0.8em;
+      }
+
+      .certificationColumn{
+        width: 100%;
+
+        .mat-divider{
+          position:relative;
+          left: -0,5%;
+          width: 100%
+        }
+
+
+      }
+
+      .zeroPointEightEM{
+        font-size: 0.8em;
+      }
+
+      .certificationMatList{
+        .mat-list-item{
+          margin-bottom: 0.5em;
+          margin-top: 0.5em;
+          height: auto;
+        }
+      }
+
+  }
+}
+
+
+
+  .columnHep{
+    width:100%;
+    .mat-h3{
+      margin: 0;
+      line-height: 1.5em;
+      font-size: 1.1em;
+    }
+  }
+
+  .rowHep{
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+
+
+
+  @media screen and (max-width: 959px) {
+    .mainMatCard {
+      max-width: 800px;
+      width: auto !important;
+
+      .mat-h1{
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: 0.8em;
+        text-align: start;
+      }
+
+      .leftColumn{
+        height: auto;
+        width: auto;
+        background-color: lightgray;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+
+        .mat-card-image{
+          width: 240px !important;
+          margin-left: 0.8em;
+        }
+
+        .contact{
+          margin-left: 0.8em;
+        }
+
+        .smallScreenImageArea{
+          margin-top: 1em;
+        }
+
+
+        .leftColumnSmallScreenUpper{
+          width: 50%;
+
+          .mat-divider{
+            position:relative;
+            width: 90%;
+          }
+
+        }
+
+        .leftLeftColumn{
+          width: 50%;
+        }
+
+        .rightColumnSmallScreenUpper{
+          width: 50%;
+
+          .mat-divider{
+            position:relative;
+            width: 90%;
+          }
+
+          .leftLeftColumn{
+            width: 50% !important;
+          }
+
+          .rightLeftColumn{
+            width: 50%;
+          }
+
+        }
+
+        .skillsMatDivider{
+          width: 45%;
+          left: 0.5%;
+        }
+
+      }
+
+      .rightColumn{
+        width:auto;
+
+        // .specDiv {
+        //   width: 100%;
+        //   text-align: center
+        // }
+
+
+        .educationColumn{
+          width: 100%;
+  
+          .mat-divider{
+            position:relative;
+            //bottom: 60%;
+            width: 100%;
+            left:-0.2%;
+          }
+        }
+
+
+
+
+        .certificationColumn{
+          width: 100%;
+  
+          .mat-divider{
+            position:relative;
+            //bottom: 60%;
+            width: 100%;
+            left:-0.2%;
+          }
+        }
+      }
+
+
+      
+      
+    }
+  }
+
+
+  @media screen and (max-width: 559px) {
+
+    .educationMatList {
+      .mat-list-item{
+        height: auto !important;
+        margin-top: 0.5em !important;
+        margin-bottom: 0.5em !important;
+      }
+    }
+
+    .specDiv {
+      width: 100%;
+      height: 19.2px;
+    }
+
+
+    .imageDiv{
+      width: 100% !important;
+
+      .mat-card-image{
+        width: 240px !important;
+      }
+      
+      
+      // margin-left: auto !important;
+      // margin-right: auto !important;
+      //display: block !important;
+    }
+  }
+
+  

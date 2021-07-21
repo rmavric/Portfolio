@@ -1,0 +1,39 @@
+
+<footer>
+
+    <div class="columnDiv" fxLayout="column" fxLayoutAlign="space-between center">
+
+        <div class="rowDiv" fxLayout="row" fxLayoutAlign="space-around center">
+            <div class="div1" *ngIf="flagCurrentPath">
+                <button mat-mini-fab (click)="likesIncrease()">
+                    <mat-icon>thumb_up</mat-icon>
+                </button>
+                <br>
+                <div class="numberText" *ngIf="noOfLikes>=0" mat-body-1>&nbsp;Likes:&nbsp;{{noOfLikes}}</div>
+            </div>
+
+            <div class="div2" *ngIf="flagCurrentPath">
+                <button mat-mini-fab (click)="dislikesIncrease()">
+                    <mat-icon>thumb_down</mat-icon>
+                </button>
+                <br>
+                <div class="numberText" *ngIf="noOfDislikes>=0" mat-body-1>&nbsp;Dislikes:&nbsp;{{noOfDislikes}}</div>
+            </div>
+        </div>
+
+        <div class="matDivider">
+            <mat-divider></mat-divider>
+        </div>
+
+        <div class="someData">
+          <div>{{this.now | date:'medium'}}</div>
+          
+        </div>
+
+    </div>
+
+
+    <div *ngIf="!flagCurrentPath" (onload)="dateAndTime()">
+        <div>{{currentDateToPrint}}</div>
+    </div>
+</footer>

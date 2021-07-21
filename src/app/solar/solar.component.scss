@@ -1,0 +1,53 @@
+div {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  
+.mat-body {
+    line-height: 28px;
+    font-size: 16px;
+}
+  
+.mat-card {
+    display: block !important;
+    margin: 0 auto;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  
+    .codeSnippet {
+      display: block !important;
+      width: calc(100% - 50px) !important;
+      margin: 25px 25px !important;
+      justify-content: center !important;
+      align-items: center !important;
+      position: relative !important;
+      text-align: initial !important;
+      text-justify: inter-word;
+      line-height: 20px;
+      font-size: 14px;
+      border: 1px solid black;
+    }
+  
+    .mat-card-image {
+      margin: 0 auto !important;
+      width: calc(100% - 25px) !important;
+    }
+}
+  
+  
+  
+@media screen and (max-width: 850px) {
+    .mat-card {
+      width: auto !important;
+    }
+}
+    
+  
+  @media screen and (max-width: 850px) {
+    .codeSnippet {
+      width: calc(100% - 50px) !important;
+    }
+}

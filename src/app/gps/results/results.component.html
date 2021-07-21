@@ -1,0 +1,23 @@
+
+
+<mat-card *ngIf="coordinates" class="mainMatCard">
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.xs="column"
+        fxLayoutAlign.xs="space-around stretch">
+        <button mat-raised-button (click)="setTo('first')">Ride - 1</button>
+        <button mat-raised-button (click)="setTo('second')">Ride - 2</button>
+      </div>
+      <div class="backupDiv">
+        <mat-divider></mat-divider>
+      </div>
+      <app-map [coords]="coordinates"></app-map>
+</mat-card>
+  
+  <br />
+  
+  
+  <h1 class="mat-h1 , errorDataDiv" *ngIf="errorData">{{errorData}}</h1>
+  
+  <div *ngIf="!coordinates && !errorData" class="spinnerSection">
+    <mat-progress-spinner class="progressSpinner" mode="indeterminate">
+    </mat-progress-spinner>
+  </div>

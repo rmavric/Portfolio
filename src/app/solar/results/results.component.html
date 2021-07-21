@@ -1,0 +1,200 @@
+<div *ngIf="solarData">
+
+  <br />
+
+  <mat-card class="mainMatCard">
+
+    <h1 class="mat-h1">Results</h1>
+
+    <div class="row">
+      <mat-card class="datePickerCard" fxFlex fxLayout fxLayoutAlign="center" fxHide.xs>
+
+        <div>
+          <mat-form-field #formDatePicker fxLayoutAlign="start">
+            <input matInput [matDatepicker]="startPicker" placeholder="Choose starting date" required
+              [matDatepickerFilter]="dateFilterStartDatePicker" name="startDatePicker" ngDefaultControl
+              [ngModel]="startDatePicker" #startDateRefVar="ngModel" (ngModelChange)="detectStartDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker startView="year" [startAt]="firstStartingDate" ngDefaultControl
+              [ngModel]="startDatePicker"></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field fxLayoutAlign="end">
+            <input matInput [matDatepicker]="endPicker" placeholder="Choose ending date" required
+              [matDatepickerFilter]="dateFilterEndDatePicker" name="endDatePicker" ngDefaultControl
+              [ngModel]="endDatePicker" #endDateRefVar="ngModel" (ngModelChange)="detectEndDateChange($event)">
+            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+            <mat-datepicker #endPicker startView="year" [startAt]="secondStartingDate" ngDefaultControl
+              [(ngModel)]="endDatePicker"></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <button class="submitDates" mat-raised-button color="#00979d" type="submit"
+          (click)="datesAreSubmitted(generatedVoltagePanel, consumedVoltagePanel, generatedCurrentPanel, consumedCurrentPanel, generatedPowerPanel, consumedPowerPanel, generatedEnergyPanel, consumedEnergyPanel)"
+          [disabled]="(startDateRefVar.invalid || endDateRefVar.invalid || isButtonDisabled || isStartDateValueChanged==null || isEndDateValueChanged==null)">
+          Show diagrams
+        </button>
+      </mat-card>
+    </div>
+
+    <br />
+
+
+    <mat-accordion>
+
+      <!---------------------------------------------- VOLTAGE ---------------------------------------------->
+      <!--[expanded]="isGeneratedVoltageCollapsed"-->
+      <mat-expansion-panel #generatedVoltagePanel>
+        <!--[disabled]="startDateRefVar.invalid || endDateRefVar.invalid || areDiagramsDisabled==null"-->
+        <mat-expansion-panel-header (click)="generatedVoltageCollapseButton()">
+          <mat-panel-title>
+            V/t diagram - Generation side
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div [@btnAnimation]="generatedVoltageIndicator">
+          <app-generated-voltage-diagram [allVoltageData]="generatedVoltageData" [startDate]="startDate"
+            [endDate]="endDate">
+          </app-generated-voltage-diagram>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel #consumedVoltagePanel>
+        <mat-expansion-panel-header (click)="consumedVoltageCollapseButton()">
+          <mat-panel-title>
+            V/t diagram - Consumption side
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div [@btnAnimation]="consumedVoltageIndicator">
+          <app-consumed-voltage-diagram [allVoltageData]="consumedVoltageData" [startDate]="startDate"
+            [endDate]="endDate">
+          </app-consumed-voltage-diagram>
+        </div>
+      </mat-expansion-panel>
+
+      <!---------------------------------------------- CURRENT ---------------------------------------------->
+
+      <mat-expansion-panel #generatedCurrentPanel>
+        <mat-expansion-panel-header (click)="generatedCurrentCollapseButton()">
+          <mat-panel-title>
+            I/t diagram - Generation side
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div [@btnAnimation]="generatedCurrentIndicator">
+          <app-generated-current-diagram [allCurrentData]="generatedCurrentData" [startDate]="startDate"
+            [endDate]="endDate">
+          </app-generated-current-diagram>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel #consumedCurrentPanel>
+        <mat-expansion-panel-header (click)="consumedCurrentCollapseButton()">
+          <mat-panel-title>
+            I/t diagram - Consumption side
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div [@btnAnimation]="consumedCurrentIndicator">
+          <app-consumed-current-diagram [allCurrentData]="consumedCurrentData" [startDate]="startDate"
+            [endDate]="endDate">
+          </app-consumed-current-diagram>
+        </div>
+      </mat-expansion-panel>
+
+      <!---------------------------------------------- POWER ---------------------------------------------->
+
+      <mat-expansion-panel #generatedPowerPanel>
+        <mat-expansion-panel-header (click)="generatedPowerCollapseButton()">
+          <mat-panel-title>
+            P/t diagram - Generation side
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div [@btnAnimation]="generatedPowerIndicator">
+          <app-generated-power-diagram [allPowerData]="generatedPowerData" [startDate]="startDate" [endDate]="endDate">
+          </app-generated-power-diagram>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel #consumedPowerPanel>
+        <mat-expansion-panel-header (click)="consumedPowerCollapseButton()">
+          <mat-panel-title>
+            P/t diagram - Consumption side
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div [@btnAnimation]="consumedPowerIndicator">
+          <app-consumed-power-diagram [allPowerData]="consumedPowerData" [startDate]="startDate" [endDate]="endDate">
+          </app-consumed-power-diagram>
+        </div>
+      </mat-expansion-panel>
+
+      <!---------------------------------------------- ENERGY ---------------------------------------------->
+
+      <!-- <mat-expansion-panel #generatedEnergyPanel>
+        <mat-expansion-panel-header (click)="generatedEnergyCollapseButton()">
+          <mat-panel-title>
+            E/t diagram - Generation side
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div [@btnAnimation]="generatedEnergyIndicator">
+          <app-generated-energy-diagram [allEnergyData]="generatedEnergyData" [startDate]="startDate"
+            [endDate]="endDate">
+          </app-generated-energy-diagram>
+        </div>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel #consumedEnergyPanel>
+        <mat-expansion-panel-header (click)="consumedEnergyCollapseButton()">
+          <mat-panel-title>
+            E/t diagram - Consumption side
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div [@btnAnimation]="consumedEnergyIndicator">
+          <app-consumed-energy-diagram [allEnergyData]="consumedEnergyData" [startDate]="startDate" [endDate]="endDate">
+          </app-consumed-energy-diagram>
+        </div>
+      </mat-expansion-panel> -->
+
+
+
+    </mat-accordion>
+  </mat-card>
+
+  <br />
+
+
+
+
+  <!--<br />
+  
+      <div class="buttonForDiagram">
+        <button mat-raised-button color="primary" (click)='consumedVoltageCollapseButton()'>V/t diagram</button>
+      </div>
+      <div *ngIf="isConsumedVoltageCollapsed">
+        <span>Opened consumed</span>
+      </div>
+      <div [@btnAnimation]="consumedVoltageIndicator">
+        <app-consumed-voltage-diagram [voltageData]="voltage.getConsumedVoltageDiagramData(solarData)">
+        </app-consumed-voltage-diagram>
+      </div>
+  
+      <br />-->
+  <!--<br />
+  
+      <app-cpv-diagram [cpvData]="getCPVDiagramData()">
+      </app-cpv-diagram>-->
+
+
+
+</div>
+
+
+<h1 class="mat-h1 , errorDataDiv" *ngIf="errorData">{{errorData}}</h1>
+
+
+<!--*ngIf="!solarData"-->
+<!-- <mat-card class="mainMatCard"> -->
+<div *ngIf="!solarData && !errorData" class="spinnerSection">
+  <mat-progress-spinner class="progressSpinner" mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+<!-- </mat-card> -->

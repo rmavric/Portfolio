@@ -1,0 +1,86 @@
+.spinnerSection {
+    height: 90vh;
+    width: 100vw;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mainMatCard {
+    display: flex !important;
+    margin: 0 auto;
+    width: 800px;
+    justify-content: center;
+    //align-items: center;
+    position: relative;
+    flex-direction: column;
+  }
+
+  
+  .errorDataDiv{
+    height: 90vh;
+    width: 100vw;
+    text-align: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+}
+
+
+  
+  .progressSpinner {
+    margin-left: 45%;
+  }
+  
+  /*.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #00979d;
+  }
+  
+  .mat-spinner circle {
+    stroke: #00979d;
+  }*/
+  
+  :host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #00979d;
+  }
+  
+  /*.diagram{
+      margin-top: 1em;
+  }*/
+  
+  .backupDiv{
+      height: 2em;
+  
+      .mat-divider{
+          margin-top: 1em;
+      }
+  }
+  
+  
+  a {
+    color: #00979d;
+  }
+  
+  
+  div {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  
+  @media screen and (max-width: 850px) {
+    .mainMatCard {
+      width: auto !important;
+    }
+  
+    .progressSpinner {
+      margin-left: 40%;
+    }
+  }
+  
+  
+  @media screen and (max-width: 400px) {
+    .progressSpinner {
+      margin-left: 35%;
+    }
+  }

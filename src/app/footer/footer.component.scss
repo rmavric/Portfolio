@@ -1,0 +1,66 @@
+.columnDiv {
+    //display: flex;
+    //flex-direction: row;
+    height: 11em;
+    justify-content: space-evenly;
+    background-color: #292929;
+    color: white;
+    //margin-left: -5em !important;
+}
+
+.rowDiv{
+    top: 0;
+    width: 100%;
+    height: 5em;
+}
+
+.div1{
+    padding-top: 0.5em;
+    height: 4em;
+    .numberText{
+        margin-left: -0.6em;
+        margin-top: 0.5em;
+    }
+}
+
+.div2{
+    padding-top: 0.5em;
+    height: 4em;
+    .numberText{
+        margin-left: -1.1em;
+        margin-top: 0.5em;
+    }
+}
+
+.mat-mini-fab{
+    background-color: darkgray;
+}
+
+.matDivider{
+    width: 100%;
+    height: 1em;
+    .mat-divider{
+        margin-left: 10%;
+        margin-top: 0.5em;
+        width: 80%;
+        border-color:  white;
+    }
+}
+
+.someData{
+    width: 100%;
+    height: 5em;
+    div{
+        margin-top: 2em;
+        text-align: center;
+        height: 1em;       
+    }
+    
+}
+
+
+@media(max-width: 250px){
+    .numberText{
+        font-size: 12px;
+    }
+}

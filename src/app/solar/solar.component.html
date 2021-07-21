@@ -1,0 +1,166 @@
+<mat-card>
+  <mat-card-content>
+
+    <!-- About project -->
+
+    <h1 class="mat-h1">Solar project</h1>
+    <br />
+    <h2 class="mat-h2">Idea</h2>
+    <div class="mat-body-1">
+      At home, I have an old wristwatch that has a mechanism that should be winded mechanically. So I wanted to build
+      something that would wind that watch and I planned to use Arduino and stepper motor which I had at home.
+      As I had access to some solar cells I build four solar modules, each about 1,5 Watts (12 Volts and 0,125 Amp).
+      Using these modules connected in parallel would be more than enough to power this stepper for about 3-4 hours/day
+      depending on the period of the year.
+    </div>
+    <br />
+    <div class="mat-body-1">
+      This small project idea has widened up a little when I decided I want to monitor produced and consumed power
+      so that values measured every 15 minutes would be stored into the database and shown on this web app.
+      Electrical values are measured with two INA 219 devices and the data is sent to the database. Also, data is sent to
+      another Arduino that shows this data on the TFT display.
+    </div>
+    <br />
+    <div class="mat-body-1">
+      Also to save some energy that Wemos and Arduino are consuming, sleep mode is used.
+      Wemos does what he needs and then goes to deep sleep for about 14 minutes and 20 seconds. This is
+      calculated with its own internal clock so it is not too precise, but I didn't want to use an external RTC
+      clock for this.
+      When Wemos wakes up he sends a signal to Arduino to wake up (Arduino only sleeps between 8 PM and 10 AM), and then sends data to Arduino which is shown on
+      display.
+    </div>
+    <br />
+    <div class="mat-body-1">
+      The whole setup will be better explained in the schematics part of the project. As I said that the whole project was
+      conceived as a learning project. There are a lot of possibilities to make this Arduino project simpler but when I
+      started I didn't know how, and more ideas I had, more complicated the whole project became.
+    </div>
+    <br />
+
+    <h2 class="mat-h2">Components used</h2>
+    <div class="mat-body"><b>WEMOS D1 mini</b> -> with ESP8266</div>
+    <br />
+    <div class="mat-body"><b>Arduino Nano V3.0 x2</b> -> one used to display data on TFT display, and another to control
+      stepper motor</div>
+    <br />
+    <div class="mat-body"><b>INA219 x2</b> -> used to measure generated and consumed energy values</div>
+    <br />
+    <div class="mat-body"><b>1.8 inch 128x160 SPI full-color TFT LCD Display Module ST7735S</b> -> used to display
+      measured values</div>
+    <br />
+    <div class="mat-body"><b>BJT 2N3904</b> -> transistor used to switch backlight of TFT display ON and OFF</div>
+    <br />
+    <div class="mat-body"><b>Resistor 4.7 k<span>&#8486;</span></b> -> used to limit current in the BASE of BJT</div>
+    <br />
+    <div class="mat-body"><b>Solar panel 1.25W, 5V, 0.25A x4</b> -> used to power Arduino Nano (RTC clock)
+    </div>
+    <br />
+    <div class="mat-body"><b>Solar panel 1,25W, 12V, 0,125A (home made) x4</b> -> used to power stepper motor</div>
+    <br />
+    <div class="mat-body"><b>TB6560 3A STEPPER motor driver or A4988 driver</b> -> driver used to control stepper</div>
+    <br />
+    <div class="mat-body"><b>NEMA 17 stepper motor (17HS4401)</b></div>
+    <br />
+    <div class="mat-body"><b>Micro USB 5V 1A 18650 TP4056 lithium battery charger module x2</b> -> for charging two 3.7V
+      6000mAh LiPo batteries</div>
+    <br />
+    <div class="mat-body"><b>3.7V 6000mAh Lipo Battery 906090 li-ion rechargeable battery x2</b> -> used to supply all
+      devices</div>
+    <br />
+    <div class="mat-body"><b>1N4004 diode x2</b> -> to prevent discharging of the battery when the battery voltage is
+      greater than panel voltage</div>
+    <br />
+    <div class="mat-body"><b>STEP-DOWN module S LM2596S</b> -> used to lower voltage value to the input range of TP4056 5V
+    </div>
+    <br />
+    <div class="mat-body"><b>STEP-UP module S XL6009 x2</b> -> used to increase voltage values from output range of
+      TP4056 3.7-4.2V to input voltage values of devices</div>
+    <br />
+    <div class="mat-body"><b>DS3231 RTC clock</b> -> used to wake up Arduino Nano at 10 AM every day</div>
+    <br />
+    <div class="mat-body"><b>MB102 Breadboard Power Supply</b> -> used to power Wemos D1 mini and Arduino Nano (TFT display)</div>
+    <br />
+  </mat-card-content>
+
+  <br>
+
+  <!-- Scheme and code -->
+
+  <mat-card-content>
+
+    <h1 class="mat-h1">Scheme and code</h1>
+
+    <div class="mat-body-1">
+      Below you can see schematics of all the connections in this project and description of each component's task.
+    </div>
+
+    <br />
+
+    <img mat-card-image src="assets/SolarProject.jpg" alt="solarSetup">
+
+    <br />
+
+    <div class="mat-body-1">
+      The upper part of components is used to drive a stepper motor. I built four solar panels, each has the power of about 1,25W
+      (12V, 0,125A).
+      They are connected in parallel. Step down module (LM2596S) is used to lower the voltage from 12V to 5V which is the
+      input
+      voltage of the TP4056 module which job is to charge LiPo battery, but also lowers the voltage to around 3,7V. To power
+      stepper
+      I used 9V and that could be achieved using a step up module (XL6009). Arduino Nano which controls stepper is powered
+      with 5V
+      from the bottom right part of schematics. In schematics, A4988 driver is shown, but actually, TB6560 is used, but A4988 would
+      also be OK.
+      DS3231 is used to wake Arduino Nano every day at 10 AM using interrupts.
+    </div>
+
+    <br />
+
+    <div class="mat-body-1">The code which Arduino Nano is using is shown here:</div>
+
+    <textarea matInput rows="30" [innerHtml]="stepperArduinoSnippet" class="codeSnippet"></textarea>
+
+    <div class="mat-body-1">
+      To power the bottom part of components, MB102 breadboard power supply was used.
+      Bottom part of components is used to measure power generated in solar panels and power which
+      is consumed
+      by the stepper motor. This data is collected by Wemos D1 mini which is connected to the network. Data is then sent to SQL
+      database, but
+      also to another Arduino Nano which is used to show measured data on display. D6 pin is used to wake up Arduino
+      Nano, and Rx and
+      Tx pins for communication.
+    </div>
+
+    <br />
+
+    <div class="mat-body-1">The code which Wemos is using is shown here:</div>
+
+    <textarea matInput rows="30" [innerHtml]="wemosSnippet" class="codeSnippet"></textarea>
+
+    <div class=" = mat-body-1">
+      Arduino Nano is connected with Wemos using Rx and Tx pins.
+      D6 pin on Wemos is connected with the D2 pin on Nano. This connection is used to wake up Nano every 15 minutes
+      immediately after Wemos
+      wakes up (D6 pin on Wemos is set to LOW) but only between 8 PM and 10 AM. Nano is then awake for a few seconds only
+      to show data on display.
+      Between 10 AM and 8 PM Nano is awake. In this awake period D3 pin on Nano is set to HIGH, and the base pin of the transistor
+      is receiving a signal
+      and the current is flowing between collector and emitter which is grounded, and the backlight of LCD is on. When Nano is
+      asleep current doesn't
+      flow between collector and emitter and the backlight is off.
+    </div>
+
+    <br />
+
+    <div class="mat-body-1">The code which Arduino Nano is using is shown here:</div>
+
+    <textarea matInput rows="30" [innerHtml]="arduinoLCDSnippet" class="codeSnippet"></textarea>
+
+  </mat-card-content>
+
+
+</mat-card>
+
+<br />
+
+<app-solar-results></app-solar-results>
